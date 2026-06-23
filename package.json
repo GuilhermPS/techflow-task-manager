@@ -1,0 +1,23 @@
+{
+  "name": "techflow-task-manager",
+  "version": "1.0.0",
+  "description": "Sistema web basico de gerenciamento agil de tarefas para a TechFlow Solutions.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js",
+    "lint": "node scripts/lint.js",
+    "quality": "npm run lint && npm test"
+  },
+  "keywords": [
+    "engenharia-de-software",
+    "kanban",
+    "github-actions",
+    "crud"
+  ],
+  "author": "TechFlow Solutions",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
