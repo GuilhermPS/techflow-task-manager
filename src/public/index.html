@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TechFlow Task Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">TechFlow Solutions</p>
+        <h1>Task Manager</h1>
+      </div>
+      <div class="metrics" aria-label="Resumo de tarefas">
+        <span><strong id="total-count">0</strong> total</span>
+        <span><strong id="done-count">0</strong> concluídas</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="task-panel" aria-labelledby="new-task-title">
+        <h2 id="new-task-title">Nova tarefa</h2>
+        <form id="task-form">
+          <label>
+            Título
+            <input name="title" type="text" maxlength="80" required>
+          </label>
+          <label>
+            Responsável
+            <input name="assignee" type="text" maxlength="60">
+          </label>
+          <label>
+            Prazo
+            <input name="dueDate" type="date">
+          </label>
+          <label class="full-row">
+            Descrição
+            <textarea name="description" rows="4" maxlength="280"></textarea>
+          </label>
+          <button type="submit">Adicionar tarefa</button>
+        </form>
+      </section>
+
+      <section class="board-panel" aria-label="Quadro de tarefas">
+        <div class="toolbar">
+          <label>
+            Status
+            <select id="status-filter">
+              <option value="all">Todos</option>
+              <option value="todo">A fazer</option>
+              <option value="in-progress">Em progresso</option>
+              <option value="done">Concluído</option>
+            </select>
+          </label>
+          <label>
+            Buscar
+            <input id="search-input" type="search" placeholder="Título, descrição ou responsável">
+          </label>
+        </div>
+
+        <div class="kanban-board">
+          <section class="kanban-column" data-column="todo">
+            <header>
+              <h2>A fazer</h2>
+              <span id="todo-count">0</span>
+            </header>
+            <div class="task-list" id="todo-list"></div>
+          </section>
+          <section class="kanban-column" data-column="in-progress">
+            <header>
+              <h2>Em progresso</h2>
+              <span id="in-progress-count">0</span>
+            </header>
+            <div class="task-list" id="in-progress-list"></div>
+          </section>
+          <section class="kanban-column" data-column="done">
+            <header>
+              <h2>Concluído</h2>
+              <span id="done-column-count">0</span>
+            </header>
+            <div class="task-list" id="done-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <template id="task-card-template">
+      <article class="task-card">
+        <div class="task-card__topline">
+          <h3></h3>
+          <span class="status-badge"></span>
+        </div>
+        <p class="task-card__description"></p>
+        <dl>
+          <div>
+            <dt>Responsável</dt>
+            <dd data-field="assignee"></dd>
+          </div>
+          <div>
+            <dt>Prazo</dt>
+            <dd data-field="dueDate"></dd>
+          </div>
+        </dl>
+        <div class="task-card__actions">
+          <button data-action="move"></button>
+          <button data-action="delete" class="danger">Excluir</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
+
