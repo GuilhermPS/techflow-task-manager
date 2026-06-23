@@ -34,6 +34,15 @@
             Prazo
             <input name="dueDate" type="date">
           </label>
+          <label>
+            Prioridade
+            <select name="priority">
+              <option value="media">Média</option>
+              <option value="baixa">Baixa</option>
+              <option value="alta">Alta</option>
+              <option value="critica">Crítica</option>
+            </select>
+          </label>
           <label class="full-row">
             Descrição
             <textarea name="description" rows="4" maxlength="280"></textarea>
@@ -51,6 +60,16 @@
               <option value="todo">A fazer</option>
               <option value="in-progress">Em progresso</option>
               <option value="done">Concluído</option>
+            </select>
+          </label>
+          <label>
+            Prioridade
+            <select id="priority-filter">
+              <option value="all">Todas</option>
+              <option value="baixa">Baixa</option>
+              <option value="media">Média</option>
+              <option value="alta">Alta</option>
+              <option value="critica">Crítica</option>
             </select>
           </label>
           <label>
@@ -89,7 +108,10 @@
       <article class="task-card">
         <div class="task-card__topline">
           <h3></h3>
-          <span class="status-badge"></span>
+          <div class="task-card__badges">
+            <span class="status-badge"></span>
+            <span class="priority-badge"></span>
+          </div>
         </div>
         <p class="task-card__description"></p>
         <dl>
@@ -112,4 +134,3 @@
     <script src="/app.js" type="module"></script>
   </body>
 </html>
-

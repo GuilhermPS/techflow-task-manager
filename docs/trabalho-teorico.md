@@ -15,6 +15,7 @@ O escopo inicial contempla:
 - Atualização do status de cada tarefa.
 - Exclusão de tarefas.
 - Filtro por status e busca textual.
+- Priorização de tarefas após mudança de escopo.
 - Testes automatizados para validação de regras principais.
 - Pipeline de CI com GitHub Actions.
 
@@ -67,9 +68,11 @@ Também foi criada uma validação de qualidade que executa `node --check` nos a
 
 ## 7. Gestão de mudanças
 
-Na simulação do projeto, o cliente solicitou uma melhoria para identificar tarefas críticas com mais facilidade. Essa mudança será tratada como alteração de escopo, registrada no Kanban como novo card e implementada em commit específico.
+Na simulação do projeto, o cliente solicitou uma melhoria para identificar tarefas críticas com mais facilidade. Essa mudança foi tratada como alteração de escopo, registrada no Kanban como novo card e implementada em commit específico.
 
 A justificativa é que, em uma operação logística, algumas tarefas possuem impacto direto na entrega ao cliente final. A mudança aumenta a utilidade do sistema sem alterar sua arquitetura principal.
+
+Tecnicamente, a alteração adicionou o campo de prioridade ao cadastro de tarefas, incluiu filtros na API e na interface e ampliou os testes automatizados para validar o novo comportamento.
 
 ## 8. Prints comentados do GitHub
 
@@ -99,4 +102,3 @@ O projeto mostra como a Engenharia de Software conecta planejamento, implementa�
 - Pressman, Roger S. Engenharia de Software: Uma Abordagem Profissional.
 - Atlassian. Como usar Kanban para melhorar produtividade.
 - Canal Programação Fácil. Testes automatizados com GitHub Actions.
-

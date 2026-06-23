@@ -6,6 +6,7 @@ class Task {
   +String description
   +String assignee
   +String dueDate
+  +String priority
   +String status
   +String createdAt
   +String updatedAt
@@ -41,4 +42,3 @@ TaskStore ..> ValidationError
 TaskStore ..> NotFoundError
 
 @enduml
-

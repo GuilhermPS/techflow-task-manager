@@ -4,6 +4,13 @@ const statusLabels = {
   done: 'Concluído'
 };
 
+const priorityLabels = {
+  baixa: 'Baixa',
+  media: 'Média',
+  alta: 'Alta',
+  critica: 'Crítica'
+};
+
 const nextStatus = {
   todo: { value: 'in-progress', label: 'Iniciar' },
   'in-progress': { value: 'done', label: 'Concluir' },
@@ -13,6 +20,7 @@ const nextStatus = {
 const elements = {
   form: document.querySelector('#task-form'),
   statusFilter: document.querySelector('#status-filter'),
+  priorityFilter: document.querySelector('#priority-filter'),
   searchInput: document.querySelector('#search-input'),
   template: document.querySelector('#task-card-template'),
   lists: {
@@ -48,6 +56,7 @@ elements.form.addEventListener('submit', async (event) => {
 });
 
 elements.statusFilter.addEventListener('change', loadTasks);
+elements.priorityFilter.addEventListener('change', loadTasks);
 elements.searchInput.addEventListener('input', debounce(loadTasks, 220));
 
 for (const list of Object.values(elements.lists)) {
@@ -81,10 +90,15 @@ await loadTasks();
 async function loadTasks() {
   const params = new URLSearchParams();
   const status = elements.statusFilter.value;
+  const priority = elements.priorityFilter.value;
   const query = elements.searchInput.value.trim();
 
   if (status !== 'all') {
     params.set('status', status);
+  }
+
+  if (priority !== 'all') {
+    params.set('priority', priority);
   }
 
   if (query) {
@@ -138,6 +152,7 @@ function createTaskCard(task) {
   const title = fragment.querySelector('h3');
   const description = fragment.querySelector('.task-card__description');
   const statusBadge = fragment.querySelector('.status-badge');
+  const priorityBadge = fragment.querySelector('.priority-badge');
   const assignee = fragment.querySelector('[data-field="assignee"]');
   const dueDate = fragment.querySelector('[data-field="dueDate"]');
   const moveButton = fragment.querySelector('[data-action="move"]');
@@ -147,6 +162,8 @@ function createTaskCard(task) {
   description.textContent = task.description || 'Sem descrição';
   statusBadge.textContent = statusLabels[task.status];
   statusBadge.classList.add(task.status);
+  priorityBadge.textContent = priorityLabels[task.priority] || 'Média';
+  priorityBadge.classList.add(task.priority || 'media');
   assignee.textContent = task.assignee || 'Não definido';
   dueDate.textContent = task.dueDate || 'Sem prazo';
   moveButton.textContent = nextStatus[task.status].label;
@@ -184,4 +201,3 @@ function debounce(callback, delay) {
     timeoutId = window.setTimeout(() => callback(...args), delay);
   };
 }
-

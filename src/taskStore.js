@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 export const TASK_STATUSES = Object.freeze(['todo', 'in-progress', 'done']);
+export const TASK_PRIORITIES = Object.freeze(['baixa', 'media', 'alta', 'critica']);
 
 export class ValidationError extends Error {
   constructor(errors) {
@@ -45,6 +46,7 @@ export class TaskStore {
       description: data.description,
       assignee: data.assignee,
       dueDate: data.dueDate,
+      priority: data.priority,
       status: data.status,
       createdAt: now,
       updatedAt: now
@@ -143,6 +145,16 @@ export function validateTaskInput(input, options = {}) {
     }
   }
 
+  if (!partial || Object.hasOwn(source, 'priority')) {
+    const priority = source.priority || 'media';
+
+    if (!TASK_PRIORITIES.includes(priority)) {
+      errors.push({ field: 'priority', message: 'Prioridade inválida para a tarefa.' });
+    } else {
+      data.priority = priority;
+    }
+  }
+
   if (!partial || Object.hasOwn(source, 'status')) {
     const status = source.status || 'todo';
 
@@ -163,4 +175,3 @@ export function validateTaskInput(input, options = {}) {
 function normalizeText(value) {
   return typeof value === 'string' ? value.trim() : '';
 }
-

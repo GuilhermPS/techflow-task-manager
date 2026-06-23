@@ -13,11 +13,13 @@ test('cria, lista, atualiza e remove tarefas', async () => {
       title: 'Mapear fluxo de entregas',
       description: 'Levantar etapas usadas pela startup de logística',
       assignee: 'Ana',
-      dueDate: '2026-06-30'
+      dueDate: '2026-06-30',
+      priority: 'critica'
     });
 
     assert.equal(created.status, 'todo');
     assert.equal(created.assignee, 'Ana');
+    assert.equal(created.priority, 'critica');
 
     const updated = await context.store.update(created.id, { status: 'in-progress' });
     assert.equal(updated.status, 'in-progress');
@@ -38,10 +40,10 @@ test('valida título obrigatório e status aceito', async () => {
 
   try {
     await assert.rejects(
-      () => context.store.create({ title: '', status: 'blocked' }),
+      () => context.store.create({ title: '', status: 'blocked', priority: 'urgente' }),
       (error) => {
         assert.equal(error instanceof ValidationError, true);
-        assert.equal(error.errors.length, 2);
+        assert.equal(error.errors.length, 3);
         return true;
       }
     );
@@ -72,4 +74,3 @@ async function createStoreContext() {
     cleanup: () => rm(directory, { recursive: true, force: true })
   };
 }
-

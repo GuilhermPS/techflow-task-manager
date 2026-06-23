@@ -11,19 +11,19 @@ rectangle "TechFlow Task Manager" {
   usecase "Atualizar status" as UC3
   usecase "Excluir tarefa" as UC4
   usecase "Filtrar tarefas" as UC5
-  usecase "Executar testes automatizados" as UC6
-  usecase "Validar qualidade do código" as UC7
+  usecase "Priorizar tarefa crítica" as UC6
+  usecase "Executar testes automatizados" as UC7
+  usecase "Validar qualidade do código" as UC8
 }
 
 Gestor --> UC1
 Gestor --> UC2
 Gestor --> UC5
-Gestor --> UC3
+Gestor --> UC6
 Membro --> UC2
 Membro --> UC3
 Membro --> UC4
-CI --> UC6
 CI --> UC7
+CI --> UC8
 
 @enduml
-

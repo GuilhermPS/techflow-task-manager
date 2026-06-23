@@ -14,4 +14,4 @@ Use estes cards no GitHub Projects, distribuídos nas colunas `To Do`, `In Progr
 | 8 | Configurar GitHub Actions | Rodar testes e verificação de qualidade automaticamente. | Done |
 | 9 | Revisar documentação | Completar README, UML e instruções de execução. | In Progress |
 | 10 | Preparar vídeo pitch | Gravar apresentação do projeto, testes e CI. | To Do |
-
+| 11 | Adicionar prioridade para tarefas críticas | Mudança de escopo solicitada pelo cliente para destacar atividades urgentes. | Done |

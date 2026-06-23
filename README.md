@@ -15,6 +15,10 @@ Criar uma aplicação funcional de CRUD de tarefas com organização ágil, vers
 - Executar testes automatizados para validar regras principais.
 - Rodar pipeline de CI no GitHub Actions.
 
+## Escopo atual
+
+Após a mudança simulada de escopo, o sistema também permite classificar tarefas por prioridade (`Baixa`, `Média`, `Alta` e `Crítica`) e filtrar o quadro por esse critério.
+
 ## Metodologia adotada
 
 Foi adotado um processo híbrido entre Kanban e práticas leves de Scrum:
@@ -98,10 +102,18 @@ npm run quality
 | Escrever documentação do projeto | Done |
 | Revisar qualidade do código | In Progress |
 | Preparar vídeo pitch | To Do |
+| Adicionar prioridade para tarefas críticas | Done |
 
 ## Gestão de mudanças
 
-Durante a simulação do projeto, o cliente solicitou uma melhoria para facilitar a identificação de tarefas críticas. A mudança será registrada como novo card no Kanban e implementada em commit próprio, mantendo rastreabilidade entre necessidade de negócio, código e documentação.
+Durante a simulação do projeto, o cliente solicitou uma melhoria para facilitar a identificação de tarefas críticas. A mudança foi registrada como novo card no Kanban e implementada em commit próprio, mantendo rastreabilidade entre necessidade de negócio, código e documentação.
+
+Mudança implementada:
+
+- Inclusão do campo `priority` no modelo de tarefa.
+- Filtro por prioridade na API e na interface web.
+- Destaque visual para tarefas de prioridade crítica.
+- Atualização dos testes automatizados para validar o novo campo.
 
 ## Questões norteadoras
 
@@ -131,4 +143,3 @@ O projeto aplica ciclos curtos de entrega, backlog visível, Kanban, commits fre
 - Pressman, Roger S. Engenharia de Software: Uma Abordagem Profissional.
 - Atlassian. Como usar Kanban para melhorar produtividade.
 - Canal Programação Fácil. Testes automatizados com GitHub Actions.
-

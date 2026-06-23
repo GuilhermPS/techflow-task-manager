@@ -33,11 +33,16 @@ export function createApp(options = {}) {
 
       if (url.pathname === '/api/tasks' && request.method === 'GET') {
         const status = url.searchParams.get('status');
+        const priority = url.searchParams.get('priority');
         const query = (url.searchParams.get('q') || '').toLowerCase();
         let tasks = await store.list();
 
         if (status && status !== 'all') {
           tasks = tasks.filter((task) => task.status === status);
+        }
+
+        if (priority && priority !== 'all') {
+          tasks = tasks.filter((task) => task.priority === priority);
         }
 
         if (query) {
@@ -181,4 +186,3 @@ function handleError(error, response) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   startServer();
 }
-

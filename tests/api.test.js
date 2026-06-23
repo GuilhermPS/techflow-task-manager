@@ -15,14 +15,16 @@ test('API permite criar, filtrar, atualizar e excluir tarefa', async () => {
       method: 'POST',
       body: JSON.stringify({
         title: 'Criar backlog inicial',
-        assignee: 'Bruno'
+        assignee: 'Bruno',
+        priority: 'alta'
       })
     });
 
     assert.equal(created.status, 201);
     assert.equal(created.body.task.status, 'todo');
+    assert.equal(created.body.task.priority, 'alta');
 
-    const filtered = await context.request('/api/tasks?status=todo');
+    const filtered = await context.request('/api/tasks?status=todo&priority=alta');
     assert.equal(filtered.status, 200);
     assert.equal(filtered.body.tasks.length, 1);
 
@@ -97,4 +99,3 @@ async function createApiContext() {
     }
   };
 }
-
