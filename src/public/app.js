@@ -60,6 +60,7 @@ elements.priorityFilter.addEventListener('change', loadTasks);
 elements.searchInput.addEventListener('input', debounce(loadTasks, 220));
 
 for (const list of Object.values(elements.lists)) {
+  // Delegação de eventos: cada card criado dinamicamente usa os mesmos botões.
   list.addEventListener('click', async (event) => {
     const button = event.target.closest('button');
 
@@ -115,6 +116,7 @@ function render() {
     list.replaceChildren();
   }
 
+  // Agrupa as tarefas para espelhar as colunas do Kanban.
   const grouped = {
     todo: [],
     'in-progress': [],

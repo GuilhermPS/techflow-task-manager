@@ -37,6 +37,7 @@ export function createApp(options = {}) {
         const query = (url.searchParams.get('q') || '').toLowerCase();
         let tasks = await store.list();
 
+        // Filtros usados pela interface para simular a visualização de um quadro Kanban.
         if (status && status !== 'all') {
           tasks = tasks.filter((task) => task.status === status);
         }
@@ -105,6 +106,7 @@ async function serveStatic(publicDir, requestedPath, response) {
   const pathname = requestedPath === '/' ? '/index.html' : requestedPath;
   const filePath = path.resolve(publicDir, `.${decodeURIComponent(pathname)}`);
 
+  // Impede acesso a arquivos fora da pasta pública da aplicação.
   if (!filePath.startsWith(publicDir)) {
     return sendJson(response, 403, { error: 'Acesso negado.' });
   }

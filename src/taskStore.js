@@ -26,6 +26,7 @@ export class TaskStore {
     this.filePath = filePath;
   }
 
+  // Mantém a listagem mais recente primeiro para facilitar o acompanhamento no quadro.
   async list() {
     await this.ensureDataFile();
     const content = await readFile(this.filePath, 'utf8');
@@ -145,6 +146,7 @@ export function validateTaskInput(input, options = {}) {
     }
   }
 
+  // A prioridade foi adicionada na mudança de escopo para destacar tarefas críticas.
   if (!partial || Object.hasOwn(source, 'priority')) {
     const priority = source.priority || 'media';
 
