@@ -79,7 +79,7 @@ Tecnicamente, a alteração adicionou o campo de prioridade ao cadastro de taref
 
 ## 8. Prints comentados do GitHub
 
-Após publicar o repositório no GitHub, inserir nesta seção:
+Para a entrega final, esta seção deve conter:
 
 - Print do GitHub Projects com as colunas To Do, In Progress e Done.
 - Print do histórico de commits mostrando mensagens semânticas.

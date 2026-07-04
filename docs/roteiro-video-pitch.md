@@ -4,7 +4,7 @@ Duração máxima: 4 minutos.
 
 ## 0:00 a 0:30 - Apresentação
 
-Olá, meu nome é [seu nome] e este é o TechFlow Task Manager, um sistema web básico de gerenciamento de tarefas criado para uma startup de logística. O objetivo do projeto é demonstrar, na prática, conceitos de Engenharia de Software, metodologias ágeis, versionamento, testes e integração contínua.
+Olá, meu nome é Guilherme Pereira da Silva e este é o TechFlow Task Manager, um sistema web básico de gerenciamento de tarefas criado para uma startup de logística. O objetivo do projeto é demonstrar, na prática, conceitos de Engenharia de Software, metodologias ágeis, versionamento, testes e integração contínua.
 
 ## 0:30 a 1:10 - Metodologia ágil e Kanban
 
