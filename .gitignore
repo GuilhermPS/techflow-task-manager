@@ -4,3 +4,4 @@ coverage/
 .env
 *.log
 docs/
+scripts/build_report_docx.py
