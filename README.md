@@ -1,5 +1,8 @@
 # TechFlow Task Manager
 
+**Aluno:** Guilherme Pereira da Silva  
+**RA:** 142006
+
 Sistema web básico de gerenciamento de tarefas desenvolvido para simular um projeto ágil da TechFlow Solutions no GitHub. O projeto atende a uma startup de logística que precisa visualizar o fluxo de trabalho, acompanhar responsáveis e monitorar tarefas em tempo real.
 
 ## Objetivo

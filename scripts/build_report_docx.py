@@ -104,6 +104,8 @@ def add_cover(doc):
     meta.paragraph_format.space_after = Pt(24)
     run = meta.add_run(
         "Projeto acadêmico - TechFlow Solutions\n"
+        "Aluno: Guilherme Pereira da Silva\n"
+        "RA: 142006\n"
         "Sistema web de gerenciamento de tarefas para uma startup de logística"
     )
     run.font.size = Pt(11)

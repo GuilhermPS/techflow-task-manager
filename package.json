@@ -15,7 +15,7 @@
     "github-actions",
     "crud"
   ],
-  "author": "TechFlow Solutions",
+  "author": "Guilherme Pereira da Silva - RA142006",
   "license": "MIT",
   "engines": {
     "node": ">=20"

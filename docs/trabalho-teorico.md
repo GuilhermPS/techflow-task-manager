@@ -1,5 +1,8 @@
 # Construindo um Projeto Ágil no GitHub: da Gestão ao Controle de Qualidade
 
+**Aluno:** Guilherme Pereira da Silva  
+**RA:** 142006
+
 ## 1. Descrição do projeto
 
 A TechFlow Solutions foi contratada por uma startup de logística para desenvolver um sistema web de gerenciamento de tarefas. O sistema permite cadastrar, acompanhar e atualizar tarefas em um quadro Kanban, oferecendo maior visibilidade sobre o fluxo de trabalho da equipe.
