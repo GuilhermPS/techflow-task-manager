@@ -3,5 +3,4 @@ data/tasks.json
 coverage/
 .env
 *.log
-docs/rendered/
-
+docs/

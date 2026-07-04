@@ -82,7 +82,6 @@ npm run quality
 .
 ├── .github/workflows/ci.yml
 ├── data/
-├── docs/
 ├── scripts/
 ├── src/
 │   ├── public/
